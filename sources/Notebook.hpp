@@ -18,7 +18,7 @@ struct Bound {
         min_y = (int long)(-1);
     }
 };
-struct defualtChar{
+struct defChar{
     char d = '_';
 };
 namespace ariel {
@@ -26,9 +26,7 @@ namespace ariel {
     private:
         static char empty_val;
         Bound bound;
-        std::map<std::pair< int, std::pair< int,  int>>, defualtChar>
-
-                noteBook;
+        std::map<int, std::map<int, defChar[100]>> noteBook;
         void setCharAt( int page,  int x,  int y, char c);
         char charAt( int page,  int x,  int y) const;
         void updateBound(int start_x, int start_y, int size_x, int size_y);
@@ -37,13 +35,12 @@ namespace ariel {
      
         void write(int page, int row, int column, Direction direction, const std::string &message);
        
-        std::string read( int page, int row, int column, Direction direction,int length) const;
+        std::string read( int page, int row, int column, Direction direction,int length);
         void erase( int page, int row, int column, Direction direction, int length);
 
        
         void show(int pages) const;
 
-        bool checkCharAt(int page,  int x, int y);
     };
 } 
 
